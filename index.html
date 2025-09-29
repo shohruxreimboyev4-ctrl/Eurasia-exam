@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eurasia</title>
+    <link rel="stylesheet" href="./src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-…"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- header start -->
+    <header>
+      <div class="container mx-auto max-w-[1200px] px-4">
+        <!-- header top start -->
+        <div class="header_top hidden md:flex justify-end py-2">
+          <ul class="navbar_top flex items-center gap-4">
+            <li>
+              <a href="#" class="text-[#b0b0b0] hover:text-gray-300"
+                >Схема проезда</a
+              >
+            </li>
+            <li>
+              <a
+                href="tel:+79227288288"
+                class="text-[#b0b0b0] hover:text-gray-300"
+              >
+                <i class="fa-solid fa-phone fa-bounce"></i> 79227288288
+              </a>
+            </li>
+            <li>
+              <a
+                href="tel:+73513790979"
+                class="text-[#b0b0b0] hover:text-gray-300"
+              >
+                <i class="fa-solid fa-phone fa-bounce"></i> 73513790979
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- header top end -->
+
+        <!-- header bottom start -->
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <a href="#">
+            <img
+              src="./img/logo.svg"
+              alt="Logo"
+              class="w-full h-auto max-w-[150px]"
+            />
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex">
+            <ul class="flex gap-8 text-gray-700">
+              <li>
+                <a href="#" class="hover:text-blue-600 transition">Курорт</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Проживание</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Услуги и тарифы</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition">Афиша</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Для бизнеса</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Купить онлайн</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Hamburger Menu Button -->
+          <button
+            id="mobile-menu-button"
+            class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white"
+          >
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- header bottom end -->
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="lg:hidden hidden mt-4 pb-4 border-t border-gray-200"
+        >
+          <nav>
+            <ul class="flex flex-col gap-4 text-gray-700">
+              <li>
+                <a href="#" class="hover:text-blue-600 transition">Курорт</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Проживание</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Услуги и тарифы</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition">Афиша</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Для бизнеса</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Купить онлайн</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <script>
+      const menuBtn = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
