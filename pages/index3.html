@@ -1,11 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eurasia</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="../img/logo2.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-…"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="relative z-50">
+      <div class="container mx-auto max-w-[1200px] px-4">
+        <!-- header top start -->
+        <div class="header_top hidden md:flex justify-end py-2">
+          <ul class="navbar_top flex items-center gap-4">
+            <li>
+              <a href="#" class="text-[#b0b0b0] hover:text-gray-300"
+                >Схема проезда</a
+              >
+            </li>
+            <li>
+              <a href="tel:+79227288288" class="text-black hover:text-gray-500">
+                <i class="fa-solid fa-phone fa-bounce"></i> 79227288288
+              </a>
+            </li>
+            <li>
+              <a href="tel:+73513790979" class="text-black hover:text-gray-500">
+                <i class="fa-solid fa-phone fa-bounce"></i> 73513790979
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- header top end -->
+
+        <!-- header bottom start -->
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <a href="#">
+            <img
+              src="../img/logo.svg"
+              alt="Logo"
+              class="w-full h-auto max-w-[150px]"
+            />
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex">
+            <ul class="flex gap-8 text-gray-700">
+              <li>
+                <a href="../index.html" class="hover:text-blue-600 transition"
+                  >Курорт</a
+                >
+              </li>
+              <li>
+                <a href="./index2.html" class="hover:text-blue-600 transition"
+                  >Проживание</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Услуги и тарифы</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./pages/index4.html"
+                  class="hover:text-blue-600 transition"
+                  >Афиша</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Для бизнеса</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-600 transition"
+                  >Купить онлайн</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Hamburger Menu Button -->
+          <button
+            id="mobile-menu-button"
+            class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white"
+          >
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+        <!-- header bottom end -->
+      </div>
+
+      <!-- ✅ Mobile Menu:-->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-screen w-[80%] bg-gradient-to-b from-[#e0f7ff] via-[#cde9ff] to-[#a4d4ff] text-gray-800 z-40 transform -translate-x-full transition-transform duration-300 flex flex-col p-8 shadow-lg"
+      >
+        <!-- Close button -->
+        <button
+          id="close-menu"
+          class="absolute top-5 right-5 text-2xl text-gray-700 hover:text-red-500 transition"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <nav class="mt-12">
+          <ul class="flex flex-col gap-6 text-lg font-medium">
+            <li>
+              <a href="#" class="hover:text-blue-600 transition">Курорт</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition">Проживание</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Услуги и тарифы</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition">Афиша</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition">Для бизнеса</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Купить онлайн</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Overlay fon -->
+      <div
+        id="menu-overlay"
+        class="fixed inset-0 bg-black/50 z-30 hidden"
+      ></div>
+    </header>
+    <!-- header end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      const menuBtn = document.getElementById("mobile-menu-button");
+      const closeBtn = document.getElementById("close-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const overlay = document.getElementById("menu-overlay");
+
+      //  Menyu ochish
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("-translate-x-full");
+        overlay.classList.remove("hidden");
+      });
+
+      //  Menyu yopish
+      closeBtn.addEventListener("click", closeMenu);
+      overlay.addEventListener("click", closeMenu);
+
+      function closeMenu() {
+        mobileMenu.classList.add("-translate-x-full");
+        overlay.classList.add("hidden");
+      }
+
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+  </body>
 </html>
