@@ -1129,6 +1129,9 @@
   .text-\[900\] {
     color: 900;
   }
+  .text-black {
+    color: var(--color-black);
+  }
   .text-blue-400 {
     color: var(--color-blue-400);
   }
