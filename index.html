@@ -872,48 +872,42 @@
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      const menuBtn = document.getElementById("mobile-menu-button");
-      const closeBtn = document.getElementById("close-menu");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const overlay = document.getElementById("menu-overlay");
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.getElementById("mobile-menu-button");
+        const closeBtn = document.getElementById("close-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const overlay = document.getElementById("menu-overlay");
 
-      // Menyu ochish
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("-translate-x-full");
-        overlay.classList.remove("hidden");
-      });
+        if (!menuBtn || !mobileMenu || !overlay) return;
 
-      // Menyu yopish
-      closeBtn.addEventListener("click", closeMenu);
-      overlay.addEventListener("click", closeMenu);
-
-      function closeMenu() {
-        mobileMenu.classList.add("-translate-x-full");
-        overlay.classList.add("hidden");
-      }
-
-      // Mobile menu linklari bosilganda menu yopish va sahifaga o'tish
-      const mobileLinks = mobileMenu.querySelectorAll("a");
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const href = link.getAttribute("href");
-
-          if (href === "#") {
-            e.preventDefault();
-          }
-
-          closeMenu(); // menyuni yopadi
-
-          if (href && href !== "#") {
-            window.location.href = href;
-          }
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.remove("-translate-x-full");
+          overlay.classList.remove("hidden");
         });
-      });
 
-      // AOS animatsiya
-      AOS.init({
-        duration: 1000,
-        once: true,
+        function closeMenu() {
+          mobileMenu.classList.add("-translate-x-full");
+          overlay.classList.add("hidden");
+        }
+
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+        overlay.addEventListener("click", closeMenu);
+
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            if (href === "#") e.preventDefault();
+            closeMenu();
+          });
+        });
+
+        if (typeof AOS !== "undefined") {
+          AOS.init({
+            duration: 1000,
+            once: true,
+          });
+        }
       });
     </script>
   </body>
