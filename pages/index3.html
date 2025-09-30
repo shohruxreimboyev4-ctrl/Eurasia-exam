@@ -657,6 +657,19 @@
         overlay.classList.add("hidden");
       }
 
+      // Mobile menu linklari bosilganda menu yopish va sahifaga o'tish
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMenu();
+          const href = link.getAttribute("href");
+          if (href && href !== "#") {
+            window.location.href = href;
+          }
+        });
+      });
+
+      // AOS animatsiya
       AOS.init({
         duration: 1000,
         once: true,
