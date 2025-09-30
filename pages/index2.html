@@ -787,13 +787,13 @@
       const mobileMenu = document.getElementById("mobile-menu");
       const overlay = document.getElementById("menu-overlay");
 
-      //  Menyu ochish
+      // Menyu ochish
       menuBtn.addEventListener("click", () => {
         mobileMenu.classList.remove("-translate-x-full");
         overlay.classList.remove("hidden");
       });
 
-      //  Menyu yopish
+      // Menyu yopish
       closeBtn.addEventListener("click", closeMenu);
       overlay.addEventListener("click", closeMenu);
 
@@ -805,9 +805,15 @@
       // Mobile menu linklari bosilganda menu yopish va sahifaga o'tish
       const mobileLinks = mobileMenu.querySelectorAll("a");
       mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          closeMenu();
+        link.addEventListener("click", (e) => {
           const href = link.getAttribute("href");
+
+          if (href === "#") {
+            e.preventDefault();
+          }
+
+          closeMenu(); // menyuni yopadi
+
           if (href && href !== "#") {
             window.location.href = href;
           }
